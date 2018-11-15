@@ -47,6 +47,7 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnDestroy 
     @Output() calendarViewChanged: EventEmitter<IMyCalendarViewChanged> = new EventEmitter<IMyCalendarViewChanged>();
     @Output() calendarToggle: EventEmitter<number> = new EventEmitter<number>();
     @Output() inputFocusBlur: EventEmitter<IMyInputFocusBlur> = new EventEmitter<IMyInputFocusBlur>();
+    @Output() dayMouseEnter: EventEmitter<IMyCalendarDay> = new EventEmitter<IMyCalendarDay>();
     @ViewChild("selectorEl") selectorEl: ElementRef;
     @ViewChild("inputBoxEl") inputBoxEl: ElementRef;
 
@@ -830,6 +831,10 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnDestroy 
         this.prevYearDisabled = y - 1 < this.opts.minYear || dpy;
         this.nextMonthDisabled = m === 12 && y === this.opts.maxYear || dnm;
         this.nextYearDisabled = y + 1 > this.opts.maxYear || dny;
+    }
+
+    callMouseEnter(day: IMyCalendarDay): void {
+        this.dayMouseEnter.emit(day);
     }
 
     // Remove listeners or nullify globals on component destroy 
