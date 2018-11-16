@@ -1,17 +1,17 @@
 {
-  "name": "mydatepicker",
-  "version": "2.6.6",
+  "name": "mydatepicker_jh",
+  "version": "2.7.0",
   "description": "Angular date picker",
   "keywords": [
     "Angular",
     "typescript",
     "date picker"
   ],
-  "author": "kekeh",
+  "author": "Kojima13",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kekeh/mydatepicker.git"
+    "url": "https://github.com/Kojima13/mydatepicker"
   },
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js --progress",
