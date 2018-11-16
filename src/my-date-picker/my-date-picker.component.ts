@@ -256,7 +256,7 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnDestroy 
             let row: Array<IMyCalendarYear> = [];
             for (let j = i; j < i + 5; j++) {
                 let disabled: boolean = this.utilService.isMonthDisabledByDisableUntil({year: j, month: this.visibleMonth.monthNbr, day: this.daysInMonth(this.visibleMonth.monthNbr, j)}, this.opts.disableUntil)
-                 || this.utilService.isMonthDisabledByDisableSince({year: j, month: this.visibleMonth.monthNbr, day: 1}, this.opts.disableSince);
+                    || this.utilService.isMonthDisabledByDisableSince({year: j, month: this.visibleMonth.monthNbr, day: 1}, this.opts.disableSince);
                 let minMax: boolean = j < this.opts.minYear || j > this.opts.maxYear;
                 row.push({year: j, currYear: j === today.year, selected: j === this.visibleMonth.year, disabled: disabled || minMax});
             }
@@ -834,7 +834,9 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnDestroy 
     }
 
     callMouseEnter(day: IMyCalendarDay): void {
-        this.dayMouseEnter.emit(day.dateObj);
+        if (day.disabled === false) {
+            this.dayMouseEnter.emit(day.dateObj);
+        }
     }
 
     // Remove listeners or nullify globals on component destroy 
