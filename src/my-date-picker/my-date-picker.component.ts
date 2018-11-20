@@ -834,7 +834,7 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnDestroy 
     }
 
     callMouseEnter(day: IMyCalendarDay): void {
-        if (day.disabled === false) {
+        if (day.disabled === false && day.dateObj.month === this.visibleMonth.monthNbr) {
             this.dayMouseEnter.emit(day.dateObj);
         }
     }
