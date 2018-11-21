@@ -232,11 +232,11 @@ export class UtilService {
     }
 
     isMonthDisabledByDisableUntil(date: IMyDate, disableUntil: IMyDate): boolean {
-        return this.isInitializedDate(disableUntil) && this.getTimeInMilliseconds(date) < this.getTimeInMilliseconds(disableUntil);
+        return this.isInitializedDate(disableUntil) && this.getTimeInMilliseconds(date) <= this.getTimeInMilliseconds(disableUntil);
     }
 
     isMonthDisabledByDisableSince(date: IMyDate, disableSince: IMyDate): boolean {
-        return this.isInitializedDate(disableSince) && this.getTimeInMilliseconds(date) > this.getTimeInMilliseconds(disableSince);
+        return this.isInitializedDate(disableSince) && this.getTimeInMilliseconds(date) >= this.getTimeInMilliseconds(disableSince);
     }
 
     isInitializedDate(date: IMyDate): boolean {
